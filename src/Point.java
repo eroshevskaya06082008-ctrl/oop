@@ -4,5 +4,6 @@ public class Point {
     public String toString() {
         String napis = "x=" + this.x + " y=" + this.y;
         return napis;
+
     }
 }
