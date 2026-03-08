@@ -23,5 +23,14 @@ public class Main{
         Point p2 = new Point(3, 4);
         Segment segment = new Segment(p1, p2);
         System.out.println(segment);
+        Point[] pts = {
+                new Point(10,10),
+                new Point(100,10),
+                new Point(100,100),
+                new Point(10,100)
+        };
+        Polygon polygon = new Polygon(pts);
+        System.out.println(polygon.toString());
+        System.out.println(polygon.toSvg());
     }
 }
