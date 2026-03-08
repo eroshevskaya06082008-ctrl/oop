@@ -10,4 +10,15 @@ public class Point {
                 + "\" cy=\"" + y + "\" fill=\"red\"";
         return napis;
     }
+    public void translate(double dx, double dy) {
+        this.x += dx;
+        this.y += dy;
+    }
+    public Point translated(double dx, double dy) {
+        Point point = new Point();
+        point.x += dx;
+        point.y += dy;
+        return point;
+
+    }
 }
