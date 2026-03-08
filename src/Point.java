@@ -1,34 +1,42 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Point {
 
     private double x = 5;
-    private double y  = 10;
+    private double y = 10;
+
     public Point() {
-        x =0;
-        y =0;
+        x = 0;
+        y = 0;
     }
-    public Point(double x, double y){
+
+    public Point(double x, double y) {
         this.x = x;
-        this.y = y;
-    }
-    public double getX() {
-        return x;
-    }
-    public double getY() {
-        return y;
-    }
-    public void setX(double x) {
-        this.x = x;
-    }
-    public void setY(double y) {
         this.y = y;
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
 
 
     public String toString() {
         String napis = "x=" + this.x + " y=" + this.y;
         return napis;
     }
+
     public String toSvg() {
         String napis = "<circle r=\"45\" cx=\"" + x
                 + "\" cy=\"" + y + "\" fill=\"red\"";
@@ -39,6 +47,7 @@ public class Point {
         this.x += dx;
         this.y += dy;
     }
+
     public Point translated(double dx, double dy) {
         Point point = new Point();
         point.x += dx;

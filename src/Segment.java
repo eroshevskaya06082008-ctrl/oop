@@ -1,15 +1,14 @@
 public class Segment {
 
-    public Point point1;
-    public Point point2;
+    private Point point1;
+    private Point point2;
     public Segment(Point point1, Point point2) {
-        this.point1 = point1;
-        this.point2 = point2;
+        this.point1 = new Point(point1.getX(), point1.getY());
+        this.point2 = new Point(point2.getX(), point2.getY());
         }
-        public double length() {
-            return Math.sqrt(Math.pow(point2.getX() - point1.getX(), 2) +
-                    Math.pow(point2.getY() - point2.getY(), 2));
-    }
+        public String toString() {
+        return "Segment from " + point1.toString() + " to " + point2.toString();
+        }
 }
 
 
