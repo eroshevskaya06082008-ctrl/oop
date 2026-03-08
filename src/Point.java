@@ -1,6 +1,30 @@
 public class Point {
-    public double x = 5;
-    public double y = 10;
+
+    private double x = 5;
+    private double y  = 10;
+    public Point() {
+        x =0;
+        y =0;
+    }
+    public Point(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
+    public double getX() {
+        return x;
+    }
+    public double getY() {
+        return y;
+    }
+    public void setX(double x) {
+        this.x = x;
+    }
+    public void setY(double y) {
+        this.y = y;
+    }
+
+
+
     public String toString() {
         String napis = "x=" + this.x + " y=" + this.y;
         return napis;
@@ -10,6 +34,7 @@ public class Point {
                 + "\" cy=\"" + y + "\" fill=\"red\"";
         return napis;
     }
+
     public void translate(double dx, double dy) {
         this.x += dx;
         this.y += dy;
