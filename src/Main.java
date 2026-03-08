@@ -8,7 +8,7 @@ public class Main{
         System.out.println(point.x + " " + point.y);
         Point point1 = new Point();
         System.out.println(point1.toString());
-
+        System.out.println(point1.toSvg());
 
     }
 }
