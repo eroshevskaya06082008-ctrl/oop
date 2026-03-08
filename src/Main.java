@@ -9,5 +9,6 @@ public class Main{
         Point point1 = new Point();
         System.out.println(point1.toString());
 
+
     }
 }
