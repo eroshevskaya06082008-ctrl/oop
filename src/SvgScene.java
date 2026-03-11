@@ -8,4 +8,13 @@ public class SvgScene {
             index =0;
         }
     }
+    public String toSvg() {
+        String res = "";
+        for(Polygon p : polygon) {
+            if(p!= null) {
+                res += p.toSvg();
+            }
+        }
+        return res;
+    }
 }
