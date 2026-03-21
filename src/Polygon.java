@@ -15,12 +15,14 @@ public class Polygon {
         return res;
     }
     public String toSvg() {
-        String svg = "<polygon points=\\";
-        for(Point p : points) {
-            svg += p.getX() + ", " + p.getY() + " ";
+        String result = "<polygon points=\"";
+
+        for (Point p : points) {
+            result += (int)p.getX() + "," + (int)p.getY() + " ";
         }
-        svg += "\" />";
-        return svg;
+
+        result += "\" />";
+        return result;
     }
     public Polygon(Polygon other) {
         this.points = new Point[other.points.length];
