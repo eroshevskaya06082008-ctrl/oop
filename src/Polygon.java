@@ -67,5 +67,13 @@ public class Polygon {
         result += "\" " + style.toSvg() + " />";
         return result;
     }
+    public static Polygon square(Segment s, Style style) {
+        Segment p = s.perpendicular();
+        Point a = s.getPoint1();
+        Point b = s.getPoint2();
+        Point c = p.getPoint1();
+        Point d = p.getPoint2();
+        return new Polygon(new Point[] {a, b, c, d}, style);
 
+    }
 }
