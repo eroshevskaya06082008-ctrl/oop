@@ -1,11 +1,8 @@
-public class Polygon {
+public class Polygon  extends Shape{
 
     private Point[] points;
     public Polygon(Point[] points){
-       this.points = new Point[points.length];
-       for(int i = 0; i< points.length;i++) {
-           this.points[i] = new Point(points[i].getX(), points[i].getY());
-       }
+        this(points, null);
     }
     public String toString() {
         String res = "Punkty wielokata: ";
@@ -14,6 +11,7 @@ public class Polygon {
         }
         return res;
     }
+    @Override
     public String toSvg() {
         String result = "<polygon points=\"";
 
@@ -21,10 +19,11 @@ public class Polygon {
             result += (int)p.getX() + "," + (int)p.getY() + " ";
         }
 
-        result += "\" />";
+        result += "\" " + style.toSvg() + " />";
         return result;
     }
     public Polygon(Polygon other) {
+        super(other.style);
         this.points = new Point[other.points.length];
         for(int i = 0; i< other.points.length; i++) {
             this.points[i] = new Point(other.points[i].getX(), other.points[i].getY());
@@ -45,13 +44,13 @@ public class Polygon {
         double height = maxY - minY;
         return new BoundingBox(minX, minY, width, height);
     }
-    private Style style;
     public Polygon(Point[] points, Style style) {
+        super(style);
         this.points = new Point[points.length];
         for(int i = 0; i< points.length; i++) {
             this.points[i] = new Point(points[i]);
         }
-        if(style != null) {
+        if(style == null) {
             this.style = new Style("none", "black", 1);
         } else {
             this.style= style;
@@ -70,8 +69,8 @@ public class Polygon {
     public static Polygon square(Segment s, Style style) {
         Segment p = s.perpendicular();
         Point a = s.getPoint1();
-        Point b = s.getPoint2();
-        Point c = p.getPoint1();
+        Point c = s.getPoint2();
+        Point b = p.getPoint1();
         Point d = p.getPoint2();
         return new Polygon(new Point[] {a, b, c, d}, style);
 
