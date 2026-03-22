@@ -45,6 +45,27 @@ public class Polygon {
         double height = maxY - minY;
         return new BoundingBox(minX, minY, width, height);
     }
+    private Style style;
+    public Polygon(Point[] points, Style style) {
+        this.points = new Point[points.length];
+        for(int i = 0; i< points.length; i++) {
+            this.points[i] = new Point(points[i]);
+        }
+        if(style != null) {
+            this.style = new Style("none", "black", 1);
+        } else {
+            this.style= style;
+        }
+    }
+    public String toSvgStyle() {
+        String result = "<polygon points=\"";
 
+        for (Point p : points) {
+            result += (int)p.getX() + "," + (int)p.getY() + " ";
+        }
+
+        result += "\" " + style.toSvg() + " />";
+        return result;
+    }
 
 }
