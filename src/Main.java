@@ -34,7 +34,7 @@ public class Main {
                 new Point(20, 120)
         });
         SvgScene scene = new SvgScene();
-        scene.addPolygon(triangle);
+        scene.addShapes(triangle);
 //        scene.addPolygon(square);
         scene.save("output.svg");
 

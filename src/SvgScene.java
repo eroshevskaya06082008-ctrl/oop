@@ -3,20 +3,20 @@ import java.io.IOException;
 
 public class SvgScene {
 
-    private Polygon[]  polygon = new Polygon[3];
+    private Shape[]  shapes = new Shape[3];
     private int index = 0;
-    public void addPolygon(Polygon p){
-       polygon[index] = p;
+    public void addShapes(Shape s){
+       shapes[index] = s;
        index++;
-       if(index == polygon.length) {
+       if(index == shapes.length) {
            index = 0;
        }
     }
     public String toSvg() {
         String res = "";
-        for(Polygon p : polygon) {
-            if(p != null) {
-                res += p.toSvg();
+        for(Shape s : shapes) {
+            if(s != null) {
+                res += s.toSvg();
             }
         }
         return res;
@@ -27,9 +27,9 @@ public class SvgScene {
         double minY = Double.MAX_VALUE;
         double maxX = Double.MIN_VALUE;
         double maxY = Double.MIN_VALUE;
-        for(Polygon p : polygon) {
-            if(p == null){continue;}
-            BoundingBox b = p.boundingBox();
+        for(Shape s : shapes) {
+            if(s == null){continue;}
+            BoundingBox b = s.boundingBox();
             if(b.x() < minX) {minX = b.x();}
             if(b.y() < minY) {minY = b.y();}
 
@@ -39,9 +39,9 @@ public class SvgScene {
         double width = maxX - minX;
         double height = maxY - minY;
         String svg = "<svg width='" + width + "' height='" + height + "' xmlns=\"http://www.w3.org/2000/svg\">\n" ;
-        for(Polygon p : polygon) {
-            if(p != null) {
-                svg += p.toSvg() + "\n";
+        for(Shape s : shapes) {
+            if(s != null) {
+                svg += s.toSvg() + "\n";
             }
         }
         svg += "</svg>";
